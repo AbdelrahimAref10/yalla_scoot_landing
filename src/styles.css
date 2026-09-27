@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&family=Teko:wght@500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #1b1f24;
+  font-family: Manrope, 'Segoe UI', sans-serif;
+}
+
+::selection {
+  background: #f5b301;
+  color: #1b1f24;
+}
+
+:root {
+  --fluid-pad: 20px;
+}
+
+.container-fluid {
+  width: 100%;
+  max-width: none;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--fluid-pad);
+  padding-left: var(--fluid-pad);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fluid-pad: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --fluid-pad: 64px;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --fluid-pad: 80px;
+  }
+}
+
+.hero-title {
+  max-width: none;
+  font-family: "Teko", "Montserrat", sans-serif;
+  font-size: 72px;
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: none;
+  line-height: 1em;
+  letter-spacing: -2px;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 104px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-title {
+    font-size: 132px;
+  }
+}
+
+app-navbar,
+app-hero,
+app-about,
+app-features,
+app-why,
+app-fleet,
+app-cta,
+app-testimonials,
+app-faq,
+app-blog,
+app-footer {
+  display: block;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+.eyebrow {
+  color: #e10600;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border-radius: 0.7rem;
+  padding: 0.85rem 1.25rem;
+  font-weight: 800;
+  line-height: 1;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid #f5b301;
+  outline-offset: 3px;
+}
+
+.btn-red {
+  background: #e10600;
+  color: #fff;
+}
+
+.btn-red:hover {
+  background: #b10500;
+}
+
+.hero-zoom {
+  animation: heroZoom 9s ease-out both;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+}
+
+.faq-panel.open {
+  grid-template-rows: 1fr;
+}
+
+.faq-panel > div {
+  overflow: hidden;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero-zoom { animation: none; }
+}
